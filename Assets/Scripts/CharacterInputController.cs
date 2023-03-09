@@ -58,7 +58,7 @@ public class CharacterInputController : MonoBehaviour {
 
         //do some filtering of our input as well as clamp to a speed limit
         filteredForwardInput = Mathf.Clamp(Mathf.Lerp(filteredForwardInput, v, 
-            Time.deltaTime * forwardInputFilter), -forwardSpeedLimit, forwardSpeedLimit);
+            Time.deltaTime * forwardInputFilter), 0, forwardSpeedLimit);
 
         filteredTurnInput = Mathf.Lerp(filteredTurnInput, h, 
             Time.deltaTime * turnInputFilter);

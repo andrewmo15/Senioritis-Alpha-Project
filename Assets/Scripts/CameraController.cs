@@ -11,8 +11,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        positionOffset = new Vector3(0,10,-13);
-        rotationOffset = Quaternion.Euler(10, 0, 0);
+        positionOffset = new Vector3(0,2, -5);
+        rotationOffset = Quaternion.Euler(0, 0, 0);
     }
 
     // Update is called once per frame

@@ -62,6 +62,7 @@ public class ChickenController : MonoBehaviour
         //It's supposed to be safe to not scale with Time.deltaTime (e.g. framerate correction) within FixedUpdate()
         //If you want to make that optimization, you can precompute your velocity-based translation using Time.fixedDeltaTime
         //We use rbody.MovePosition() as it's the most efficient and safest way to directly control position in Unity's Physics
+        print(this.transform.forward * inputForward * Time.deltaTime * forwardMaxSpeed);
         rbody.MovePosition(rbody.position +  this.transform.forward * inputForward * Time.deltaTime * forwardMaxSpeed);
         //Most characters use capsule colliders constrained to not rotate around X or Z axis
         //However, it's also good to freeze rotation around the Y axis too. This is because friction against walls/corners
@@ -72,5 +73,13 @@ public class ChickenController : MonoBehaviour
 
         anim.SetFloat("velx", inputTurn); 
         anim.SetFloat("vely", inputForward);
+        if (inputForward > 0.01)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
     }
 }
