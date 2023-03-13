@@ -40,7 +40,7 @@ public class ChickenController : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
 
         float inputForward=0f;
