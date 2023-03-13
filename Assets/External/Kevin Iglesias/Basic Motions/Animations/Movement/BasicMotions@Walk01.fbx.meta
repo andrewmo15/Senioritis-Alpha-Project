@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: bd1c2e9064da28e4fb0fe4a3f6ff4e33
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 20300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -578,8 +578,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BasicMotions@Walk01 - Forwards
-      takeName: BasicMotions@Walk01 - Forwards
+      name: BasicMotions@Walk01 - BackwardsRight (1)
+      takeName: BasicMotions@Walk01 - BackwardsRight
       internalID: 0
       firstFrame: 0
       lastFrame: 24
@@ -1623,6 +1623,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
