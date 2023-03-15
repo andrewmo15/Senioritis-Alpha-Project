@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class PauseMenuToggle : MonoBehaviour 
+public class PauseMenuToggler : MonoBehaviour 
 {
     private CanvasGroup canvasGroup;
 
