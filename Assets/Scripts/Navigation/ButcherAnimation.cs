@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
-public class ButcherAgent : MonoBehaviour
+public class ButcherAnimation : MonoBehaviour
 {
     private Animator anim;
     private NavMeshAgent agent;
