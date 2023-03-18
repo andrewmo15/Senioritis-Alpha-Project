@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class AxeController : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 pos = transform.position;
         if (pos.x > 40 || pos.x < 5 || pos.z > 30 || pos.z < 3)
@@ -19,10 +19,10 @@ public class AxeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Chicken"))
-        {
-            SceneManager.LoadScene("GameOver");
-            Room3Tracker.room3Start = false;
-        }
+        if (!collision.gameObject.CompareTag("Chicken")) return;
+        
+        Room3Tracker.firing = false;
+        Room3Tracker.resetTimeRemaining();
+        SceneManager.LoadScene("GameOver");
     }
 }

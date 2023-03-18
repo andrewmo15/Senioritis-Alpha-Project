@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
@@ -9,44 +10,24 @@ public class ProjectileLauncher : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject chicken;
-    public float launchVelocity = 700f;
-    
-    public float timeRemaining = 10;
-    public bool firing;
-
-    private float launchDelayMin = 1f;
-    private float launchDelayMax = 5f;
+    private float launchVelocity = 700f;
     private Transform tankTop;
+    private const float _launchDelayMin = 1f;
+    private const float _launchDelayMax = 5f;
 
     private void Start()
     {
         tankTop = gameObject.transform.GetChild(1);
     }
     
-    private void Update()
+    public void startFiring()
     {
-        if (Room3Tracker.room3Start && !firing)
-        {
-            firing = true;
-            timeRemaining = 10;
-            Invoke("LaunchProjectile", 1f);
-        }
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            Debug.Log("Time has run out!");
-            timeRemaining = 0;
-            firing = false;
-            Room3Tracker.room3Start = false;
-        }
+        Invoke(nameof(LaunchProjectile), 1f);
     }
 
-    void LaunchProjectile()
+    private void LaunchProjectile()
     {
-        if (!firing)
+        if (!Room3Tracker.firing)
         {
             return;
         }
@@ -59,12 +40,12 @@ public class ProjectileLauncher : MonoBehaviour
         StartCoroutine(LaunchDelay());
     }
 
-    IEnumerator LaunchDelay()
+    private IEnumerator LaunchDelay()
     {
-        float launchDelay = Random.Range(launchDelayMin, launchDelayMax);
+        float launchDelay = Random.Range(_launchDelayMin, _launchDelayMax);
         yield return new WaitForSeconds(launchDelay);
         tankTop.GetComponent<Renderer>().material.color = Color.white;
         yield return new WaitForSeconds(1f);
-        Invoke("LaunchProjectile", launchDelay);
+        Invoke(nameof(LaunchProjectile), launchDelay);
     }
 }
