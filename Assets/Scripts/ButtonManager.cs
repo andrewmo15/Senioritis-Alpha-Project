@@ -11,6 +11,9 @@ public class ButtonManager : MonoBehaviour
     // This variable will indicate which target must be clicked
     private int expectedTargetIndex;
 
+    // floor tile boolean
+    public FloorColorChange tile;
+
     // Called when the scene starts
     private void Start()
     {
@@ -42,8 +45,11 @@ public class ButtonManager : MonoBehaviour
             if (expectedTargetIndex == targets.Length)
             {
                 Debug.Log("The last target has been pushed : Loading next scene");
-     
+                GameObject g = GameObject.FindGameObjectWithTag("ColorFloor");
+                tile = g.GetComponent<FloorColorChange>();
 
+                tile.colorChange = false;
+     
 
             }
         }
@@ -51,6 +57,7 @@ public class ButtonManager : MonoBehaviour
         {
             Debug.Log("The wrong target has been pushed");
             expectedTargetIndex = 0;
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

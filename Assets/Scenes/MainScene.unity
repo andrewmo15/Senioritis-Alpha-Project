@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 141094436}
   m_Layer: 0
   m_Name: ColorChangeTile
-  m_TagString: Untagged
+  m_TagString: ColorFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,7 +738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141094431}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -15, y: 0.0001, z: -22}
+  m_LocalPosition: {x: -15, y: 0.001, z: -22}
   m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_Children: []
   m_Father: {fileID: 55465238}
@@ -820,10 +820,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 141094434}
+  first: {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   Red: {fileID: 2100000, guid: 99d7c9f02fa750343ba22431944ca4e0, type: 2}
   Yellow: {fileID: 2100000, guid: b845a12b8e2ab3f43bbdd2c70cb68b6f, type: 2}
   Blue: {fileID: 2100000, guid: 77c912988c6167a43b4c28a3a6bb2776, type: 2}
   Green: {fileID: 2100000, guid: 446a19d70cd20aa47a9d106645515db1, type: 2}
+  code: {fileID: 2100000, guid: cfa53ee3a2baace4eabecada323386b6, type: 2}
   colorChange: 1
 --- !u!1001 &192642703
 PrefabInstance:
@@ -1526,6 +1528,7 @@ MonoBehaviour:
   - {fileID: 1637240176}
   - {fileID: 1681880159}
   - {fileID: 1867278620}
+  tile: {fileID: 0}
 --- !u!1 &862210375
 GameObject:
   m_ObjectHideFlags: 0
