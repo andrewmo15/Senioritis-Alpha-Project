@@ -8,10 +8,13 @@ public class FloorColorChange : MonoBehaviour
     //public GameObject tile;
     public Renderer tile;
 
+    public Material first;
     public Material Red;
     public Material Yellow;
     public Material Blue;
     public Material Green;
+    public Material code;
+    public bool colorChange;
 
 
     // Start is called before the first frame update
@@ -28,8 +31,10 @@ public class FloorColorChange : MonoBehaviour
 
     IEnumerator changeColor()
     {
-        while (true)
+        while (colorChange)
         {
+            tile.material = first;
+            yield return new WaitForSeconds(1);
             tile.material = Red;
             yield return new WaitForSeconds(1);
             tile.material = Yellow;
@@ -39,7 +44,9 @@ public class FloorColorChange : MonoBehaviour
             tile.material = Green;
             yield return new WaitForSeconds(1);
         }
-        
+
+        tile.material = code;
+
     }
 
 

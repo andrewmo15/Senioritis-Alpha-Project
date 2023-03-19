@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Chicken
+  - ColorFloor
   layers:
   - Default
   - TransparentFX
