@@ -5,6 +5,9 @@ using UnityEngine;
 public class TriggerButton : MonoBehaviour
 {
     public Animator animator;
+    public delegate void OnTargetCollisionEventHandler(TriggerButton target);
+
+    public event OnTargetCollisionEventHandler OnTargetCollisionEvent;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,6 +15,9 @@ public class TriggerButton : MonoBehaviour
         {
             Debug.Log("button triggered");
             animator.SetTrigger("button");
+
+            if (OnTargetCollisionEvent != null)
+                OnTargetCollisionEvent(this);
         }
     }
 
