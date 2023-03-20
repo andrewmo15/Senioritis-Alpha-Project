@@ -5,16 +5,21 @@ using UnityEngine;
 public class buttonStatus : MonoBehaviour
 {
     public buttonTouch pbutton;
-    public buttonTouch bbutton;
+    public buttonTouch kbutton;
     public buttonTouch cbutton;
+
+    public GameObject door;
+    private Animator animator;
 
     private string currpass;
     private string password;
+
     // Start is called before the first frame update
     void Start()
     {
-        password = "bpc";
+        password = "kpc";
         currpass = "";
+        animator = door.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,9 +29,9 @@ public class buttonStatus : MonoBehaviour
             currpass += "p";
             pbutton.buttonPressed = false;
         }
-        if (bbutton.buttonPressed) {
-            currpass += "b";
-            bbutton.buttonPressed = false;
+        if (kbutton.buttonPressed) {
+            currpass += "k";
+            kbutton.buttonPressed = false;
         }
         if (cbutton.buttonPressed) {
             currpass += "c";
@@ -34,9 +39,8 @@ public class buttonStatus : MonoBehaviour
         }
         if (currpass.Length == 3) {
             if (currpass == password) {
-                // open door
                 currpass = "";
-                Debug.Log("door opened");
+                animator.SetTrigger("open");
             }
             else {
                 currpass = "";
