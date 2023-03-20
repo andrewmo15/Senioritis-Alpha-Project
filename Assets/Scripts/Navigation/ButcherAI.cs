@@ -21,7 +21,6 @@ public class ButcherAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     private AreaReporter targetAreaReporter;
-    private AreaReporter butcherAreaReporter;
 
     public GameObject target;
     public GameObject[] hallwayWaypoints;
@@ -36,28 +35,24 @@ public class ButcherAI : MonoBehaviour
     private AIState prevState;
     public AIState state;
 
-    private readonly float detectionRadius = 15.0f;
+    private readonly float detectionRadius = 10.0f;
     private readonly float catchRadius = 1.0f;
-    private readonly float chaseDuration = 15.0f;
+    private readonly float chaseDuration = 10.0f;
     private readonly float cooldownDuration = 5.0f;
 
     // Chase timer
     public float timeRemaining = 0.0f;
     public float cooldownRemaining = 0.0f;
 
+    public AudioSource audioSource;
+    public AudioClip normalBGM;
+    public AudioClip chaseBGM;
+
     private Area TargetArea  // Returns the Area of the target
     {
         get
         {
             return targetAreaReporter.CurrentArea;
-        }
-    }
-
-    private Area ButcherArea  // Returns the Area of the butcher
-    {
-        get
-        {
-            return butcherAreaReporter.CurrentArea;
         }
     }
 
@@ -71,7 +66,6 @@ public class ButcherAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         targetAreaReporter = target.GetComponent<AreaReporter>();
-        butcherAreaReporter = GetComponent<AreaReporter>();
 
         prevState = AIState.Idle;
         state = AIState.Hallway;
@@ -159,6 +153,9 @@ public class ButcherAI : MonoBehaviour
                     // Use timer to end chase after specific duration has elapsed
                     if (prevState != AIState.Chase)  
                     {
+                        audioSource.clip = chaseBGM;
+                        audioSource.time = 8.0f;
+                        audioSource.Play();
                         timeRemaining = chaseDuration;  // Set timer
                     }
                     else
@@ -169,6 +166,8 @@ public class ButcherAI : MonoBehaviour
                             cooldownRemaining = cooldownDuration;
                             prevState = AIState.Chase;
                             state = AIState.Hallway;
+                            audioSource.clip = normalBGM;
+                            audioSource.Play();
                             break;
                         }
                     }
