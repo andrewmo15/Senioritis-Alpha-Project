@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using static AreaReporter;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -19,6 +20,8 @@ public class ButcherAI : MonoBehaviour
 
     private NavMeshAgent agent;
     private Animator anim;
+    private AreaReporter targetAreaReporter;
+    private AreaReporter butcherAreaReporter;
 
     public GameObject target;
     public GameObject[] hallwayWaypoints;
@@ -33,12 +36,30 @@ public class ButcherAI : MonoBehaviour
     private AIState prevState;
     public AIState state;
 
-    private readonly float detectionRadius = 3.0f;
+    private readonly float detectionRadius = 15.0f;
     private readonly float catchRadius = 1.0f;
-    private readonly float chaseDuration = 9.0f;
+    private readonly float chaseDuration = 15.0f;
+    private readonly float cooldownDuration = 5.0f;
 
     // Chase timer
-    private float timeRemaining = 0.0f;
+    public float timeRemaining = 0.0f;
+    public float cooldownRemaining = 0.0f;
+
+    private Area TargetArea  // Returns the Area of the target
+    {
+        get
+        {
+            return targetAreaReporter.CurrentArea;
+        }
+    }
+
+    private Area ButcherArea  // Returns the Area of the butcher
+    {
+        get
+        {
+            return butcherAreaReporter.CurrentArea;
+        }
+    }
 
     void Start()
     {
@@ -49,6 +70,9 @@ public class ButcherAI : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        targetAreaReporter = target.GetComponent<AreaReporter>();
+        butcherAreaReporter = GetComponent<AreaReporter>();
+
         prevState = AIState.Idle;
         state = AIState.Hallway;
     }
@@ -59,10 +83,24 @@ public class ButcherAI : MonoBehaviour
         {
             case (AIState.Idle):
                 {
+                    // If target is within detection distance, switch to Chase state
+                    float distanceToTarget = (target.transform.position - transform.position).magnitude;
+                    if (distanceToTarget <= detectionRadius && cooldownRemaining <= 0.0f)
+                    {
+                        prevState = AIState.Idle;
+                        state = AIState.Chase;
+                        break;
+                    }
+
+                    if (cooldownRemaining > 0.0f)  // Update cooldown if necessary
+                    {
+                        cooldownRemaining -= Time.deltaTime;
+                    }
+
+                    agent.ResetPath();  // Clear previous path if set
+
                     anim.SetBool("move", false);
                     anim.SetBool("run", false);
-                    anim.SetFloat("velx", 0.0f);
-                    anim.SetFloat("vely", 0.0f);
 
                     prevState = AIState.Idle;
                     break;
@@ -73,11 +111,16 @@ public class ButcherAI : MonoBehaviour
 
                     // If target is within detection distance, switch to Chase state
                     float distanceToTarget = (target.transform.position - transform.position).magnitude;
-                    if (distanceToTarget <= detectionRadius)
+                    if (TargetArea == Area.Hallway && distanceToTarget <= detectionRadius && cooldownRemaining <= 0.0f)
                     {
                         prevState = AIState.Hallway;
                         state = AIState.Chase;
                         break;
+                    }
+
+                    if (cooldownRemaining > 0.0f)  // Update cooldown if necessary
+                    {
+                        cooldownRemaining -= Time.deltaTime;
                     }
 
                     // Otherwise, move to next waypoint based on previous state                    
@@ -123,6 +166,7 @@ public class ButcherAI : MonoBehaviour
                         timeRemaining -= Time.deltaTime;  // Update timer
                         if (timeRemaining <= 0.0f)
                         {
+                            cooldownRemaining = cooldownDuration;
                             prevState = AIState.Chase;
                             state = AIState.Hallway;
                             break;
@@ -143,6 +187,7 @@ public class ButcherAI : MonoBehaviour
                     Vector3 futureTarget = target.transform.position + (lookAheadTime * targetRigidbody.velocity);
 
                     agent.SetDestination(futureTarget);
+                    prevState = AIState.Chase;
 
                     break;
                 }
