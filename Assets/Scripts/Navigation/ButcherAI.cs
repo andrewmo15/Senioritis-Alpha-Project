@@ -79,6 +79,13 @@ public class ButcherAI : MonoBehaviour
                 {
                     // If target is within detection distance, switch to Chase state
                     float distanceToTarget = (target.transform.position - transform.position).magnitude;
+
+                    // End game if target is caught
+                    if (distanceToTarget <= catchRadius)
+                    {
+                        SceneManager.LoadScene("GameOver");
+                    }
+
                     if (distanceToTarget <= detectionRadius && cooldownRemaining <= 0.0f)
                     {
                         prevState = AIState.Idle;
@@ -105,6 +112,13 @@ public class ButcherAI : MonoBehaviour
 
                     // If target is within detection distance, switch to Chase state
                     float distanceToTarget = (target.transform.position - transform.position).magnitude;
+
+                    // End game if target is caught
+                    if (distanceToTarget <= catchRadius)
+                    {
+                        SceneManager.LoadScene("GameOver");
+                    }
+
                     if (TargetArea == Area.Hallway && distanceToTarget <= detectionRadius && cooldownRemaining <= 0.0f)
                     {
                         prevState = AIState.Hallway;
