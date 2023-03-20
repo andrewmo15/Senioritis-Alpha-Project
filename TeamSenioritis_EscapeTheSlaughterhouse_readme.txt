@@ -25,6 +25,9 @@ There are 4 butchers that will throw axes at you. Dodge them for 15 seconds to g
 The floor of this room will have a security code under a ball out of 16 balls.
 You must push the balls to find the security code on the ground.
 
+## Pause Menu ##
+Press Escape to pull up the Pause Menu to restart or exit.
+
 # PROBLEM AREAS:
 	* If the Butcher enters a room during a chase and then gets tired,
 	  he will phase through walls to return to the hallway.
