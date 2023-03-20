@@ -34,7 +34,18 @@ public class AreaReporter : MonoBehaviour
         {
             if (collision.gameObject.CompareTag(area.ToString()))
             {
-                CurrentArea = area;
+                _CurrentArea = area;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        foreach (Area area in Enum.GetValues(typeof(Area)).Cast<Area>())
+        {
+            if (other.gameObject.CompareTag(area.ToString()))
+            {
+                _CurrentArea = area;
             }
         }
     }
