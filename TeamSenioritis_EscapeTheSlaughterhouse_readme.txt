@@ -36,6 +36,7 @@ Press Escape to pull up the Pause Menu to restart or exit.
 	  which can lead to surprise attacks as players try to exit a room.
 	* Room 3 may be too difficult for less experienced gamers.
 	* The chicken falls after exiting the final door.
+	* The Butcher still moves even when the game is paused.
 
 # MANIFESTS:
 
