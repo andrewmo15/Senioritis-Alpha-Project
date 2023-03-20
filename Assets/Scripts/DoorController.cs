@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class DoorController : MonoBehaviour
 
     public KeyCode interactKey = KeyCode.E;
 
-    private string securityCode = "1234"; // set your preferred default security code here
+    private string securityCode = "845V"; // set your preferred default security code here
     [SerializeField] private string customSecurityCode = "";
 
 
@@ -29,26 +30,27 @@ public class DoorController : MonoBehaviour
         {
             securityCode = customSecurityCode;
         }
-
+        
+        wrongCodeMessage.enabled = false; // show error message
     }
     private void Update()
     {
         if (Input.GetKeyDown(interactKey))
         {
-            if (!isLocked) // door is already open
+            if (securityCodeInput.text == securityCode) // input matches security code
             {
+                Debug.Log("in 2");
                 targetRotation = Quaternion.Euler(0f, closeAngle, 0f);
-                isLocked = true;
-            }
-            else if (securityCodeInput.text == securityCode) // input matches security code
-            {
-                targetRotation = Quaternion.Euler(0f, openAngle, 0f);
                 isLocked = false;
                 wrongCodeMessage.enabled = false; // hide error message
+                Destroy(securityCodeInput.gameObject);
             }
             else // input does not match security code
             {
-                wrongCodeMessage.enabled = true; // show error message
+                if (!String.IsNullOrEmpty(securityCodeInput.text))
+                {
+                    wrongCodeMessage.enabled = true; // show error message
+                }
             }
         }
 

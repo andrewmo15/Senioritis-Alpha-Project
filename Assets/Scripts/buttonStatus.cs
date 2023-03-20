@@ -12,9 +12,6 @@ public class buttonStatus : MonoBehaviour
     public TextMeshPro status;
     public TextMeshPro passwordText;
 
-    public GameObject door;
-    private Animator animator;
-
     private string currpass;
     private string password;
 
@@ -23,7 +20,6 @@ public class buttonStatus : MonoBehaviour
     {
         password = "kpc";
         currpass = "";
-        animator = door.GetComponent<Animator>();
         status.SetText("");
     }
 
@@ -46,8 +42,7 @@ public class buttonStatus : MonoBehaviour
         if (currpass.Length == 3) {
             if (currpass == password) {
                 currpass = "";
-                animator.SetTrigger("open");
-                status.SetText("Correct!");
+                status.SetText("Correct! 4");
             }
             else {
                 status.SetText("Try Again");

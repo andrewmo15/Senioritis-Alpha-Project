@@ -32,6 +32,8 @@ public class Room3Tracker : MonoBehaviour
             timeRemaining = 0;
             firing = false;
             room3Code.SetActive(true);
+            Destroy(this);
+            Destroy(timeText.gameObject);
         }
     }
 
