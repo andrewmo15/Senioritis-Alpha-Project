@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Chicken
+  - ColorFloor
+  - Hallway
+  - Room1
+  - Room2
+  - Room3
+  - Room4
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
