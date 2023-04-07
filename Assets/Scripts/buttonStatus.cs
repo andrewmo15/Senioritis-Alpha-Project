@@ -14,6 +14,7 @@ public class buttonStatus : MonoBehaviour
 
     private string currpass;
     private string password;
+    private string code;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +43,16 @@ public class buttonStatus : MonoBehaviour
         if (currpass.Length == 3) {
             if (currpass == password) {
                 currpass = "";
-                status.SetText("Correct! 4");
+                status.SetText("Correct! " + code);
             }
             else {
                 status.SetText("Try Again");
                 currpass = "";
             }
         }
+    }
+
+    public void setCode(string c) {
+        code = c;
     }
 }

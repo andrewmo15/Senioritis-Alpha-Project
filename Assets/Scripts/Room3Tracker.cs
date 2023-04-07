@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Room3Tracker : MonoBehaviour
 {
     public static bool firing;
     public Text timeText;
     public List<GameObject> zombies = new List<GameObject>();
-    public GameObject room3Code;
+    public GameObject code3pad;
+    public TextMeshPro code3;
+    public string code;
     
     private static float timeRemaining;
 
@@ -31,10 +34,15 @@ public class Room3Tracker : MonoBehaviour
         {
             timeRemaining = 0;
             firing = false;
-            room3Code.SetActive(true);
+            code3.SetText(code);
+            code3pad.SetActive(true);
             Destroy(this);
             Destroy(timeText.gameObject);
         }
+    }
+
+    public void setCode(string c) {
+        code = c;
     }
 
     private void OnTriggerEnter(Collider other)

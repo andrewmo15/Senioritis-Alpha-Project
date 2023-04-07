@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FloorColorChange : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class FloorColorChange : MonoBehaviour
     public Material Yellow;
     public Material Blue;
     public Material Green;
-    public Material code;
+    public Material White;
+    public TextMeshPro textmesh;
     public bool colorChange;
-
+    private string code;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +25,8 @@ public class FloorColorChange : MonoBehaviour
         StartCoroutine(changeColor());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void setCode(string c) {
+        code = c;
     }
 
     IEnumerator changeColor()
@@ -44,8 +44,8 @@ public class FloorColorChange : MonoBehaviour
             tile.material = Green;
             yield return new WaitForSeconds(1);
         }
-
-        tile.material = code;
+        tile.material = White;
+        textmesh.SetText(code);
 
     }
 

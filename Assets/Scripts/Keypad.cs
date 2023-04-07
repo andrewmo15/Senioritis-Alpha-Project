@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Keypad : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Keypad : MonoBehaviour
     public InputField inputField;
     public GameObject panel;
     public GameObject door;
+    public FloorColorChange code1;
+    public buttonStatus code2;
+    public GameObject code3pad;
+    public Room3Tracker code3;
+    public TextMeshPro code4;
 
     private float closeAngle = 0f;
     private float smoothTime = 2f;
@@ -20,7 +26,12 @@ public class Keypad : MonoBehaviour
     void Start()
     {
         passcode = "";
-        password = "8457";
+        password = createPassword();
+        code1.setCode("" + password[0]);
+        code2.setCode("" + password[1]);
+        code3.setCode("" + password[2]);
+        code4.SetText("" + password[3]);
+        code3pad.SetActive(false);
         error = "Wrong! Try again.";
     }
 
@@ -28,6 +39,14 @@ public class Keypad : MonoBehaviour
     void Update()
     {
         inputField.text = passcode;
+    }
+
+    private string createPassword() {
+        int first = Random.Range(0, 10);
+        int second = Random.Range(0, 10);
+        int third = Random.Range(0, 10);
+        int fourth = Random.Range(0, 10);
+        return "" + first + second + third + fourth;
     }
 
     private void passcodeHandler(string num) {
@@ -87,6 +106,5 @@ public class Keypad : MonoBehaviour
         var canvas = panel.gameObject.GetComponent<CanvasGroup>();
         canvas.alpha = 0;
         canvas.interactable = false;
-        canvas.blocksRaycasts = false;
     }
 }
