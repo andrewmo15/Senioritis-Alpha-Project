@@ -245,7 +245,6 @@ AnimatorStateTransition:
     m_ConditionEvent: vely
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -2589020181971071718}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -270,7 +269,6 @@ AnimatorStateTransition:
     m_ConditionEvent: Walk
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102649627973369498}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -334,7 +332,6 @@ AnimatorStateTransition:
     m_ConditionEvent: Run
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102649627973369498}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
