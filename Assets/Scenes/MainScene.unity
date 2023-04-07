@@ -4327,7 +4327,6 @@ MonoBehaviour:
   door: {fileID: 539376740}
   code1: {fileID: 141094436}
   code2: {fileID: 1387094830}
-  code3pad: {fileID: 648212120}
   code3: {fileID: 1972416127}
   code4: {fileID: 497030792}
 --- !u!4 &472232554
@@ -6338,7 +6337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648212120}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.224878, y: -1.88, z: -0.42000008}
+  m_LocalPosition: {x: 11.224878, y: -1.94, z: -0.42000008}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 1254801726}
@@ -7905,7 +7904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.329998, y: -1.34}
+  m_AnchoredPosition: {x: 11.329998, y: -1.44}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &864235389
@@ -17900,9 +17899,7 @@ MonoBehaviour:
   - {fileID: 1446849787}
   - {fileID: 1676096329}
   - {fileID: 1390635899}
-  code3pad: {fileID: 648212120}
   code3: {fileID: 845867938}
-  code: 
 --- !u!65 &1972416128
 BoxCollider:
   m_ObjectHideFlags: 0
