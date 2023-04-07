@@ -10,6 +10,8 @@ public class ProjectileLauncher : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject chicken;
+    public AudioClip currentClip;
+    public AudioSource source;
     private float launchVelocity = 700f;
     private Transform tankTop;
     private const float _launchDelayMin = 1f;
@@ -36,7 +38,11 @@ public class ProjectileLauncher : MonoBehaviour
             transform.rotation);
         Vector3 direction = chicken.transform.position - transform.position;
         direction.Normalize();
-        axe.GetComponent<Rigidbody>().AddForce(direction * launchVelocity); 
+        axe.GetComponent<Rigidbody>().AddForce(direction * launchVelocity);
+
+        source.clip = currentClip;
+        source.Play();
+
         StartCoroutine(LaunchDelay());
     }
 
