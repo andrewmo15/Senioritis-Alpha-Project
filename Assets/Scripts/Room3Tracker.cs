@@ -10,9 +10,8 @@ public class Room3Tracker : MonoBehaviour
     public static bool firing;
     public Text timeText;
     public List<GameObject> zombies = new List<GameObject>();
-    public GameObject code3pad;
     public TextMeshPro code3;
-    public string code;
+    private string code;
     
     private static float timeRemaining;
 
@@ -35,7 +34,6 @@ public class Room3Tracker : MonoBehaviour
             timeRemaining = 0;
             firing = false;
             code3.SetText(code);
-            code3pad.SetActive(true);
             Destroy(this);
             Destroy(timeText.gameObject);
         }

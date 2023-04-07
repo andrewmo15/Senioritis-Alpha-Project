@@ -14,7 +14,6 @@ public class Keypad : MonoBehaviour
     public GameObject door;
     public FloorColorChange code1;
     public buttonStatus code2;
-    public GameObject code3pad;
     public Room3Tracker code3;
     public TextMeshPro code4;
 
@@ -31,7 +30,6 @@ public class Keypad : MonoBehaviour
         code2.setCode("" + password[1]);
         code3.setCode("" + password[2]);
         code4.SetText("" + password[3]);
-        code3pad.SetActive(false);
         error = "Wrong! Try again.";
     }
 
