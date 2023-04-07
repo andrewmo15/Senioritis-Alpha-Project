@@ -13,6 +13,7 @@ public class KeyPadCollider : MonoBehaviour
             var canvas = panel.gameObject.GetComponent<CanvasGroup>();
             canvas.alpha = 1;
             canvas.interactable = true;
+            canvas.blocksRaycasts = true;
         }
     }
 }
