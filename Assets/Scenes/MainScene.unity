@@ -1558,7 +1558,7 @@ MonoBehaviour:
   Yellow: {fileID: 2100000, guid: b845a12b8e2ab3f43bbdd2c70cb68b6f, type: 2}
   Blue: {fileID: 2100000, guid: 77c912988c6167a43b4c28a3a6bb2776, type: 2}
   Green: {fileID: 2100000, guid: 446a19d70cd20aa47a9d106645515db1, type: 2}
-  White: {fileID: 2100000, guid: 96b001df30fa345c5a8ac72083c37bde, type: 2}
+  Black: {fileID: 2100000, guid: 037ecc93486c54e7b890eefcd80c2eaa, type: 2}
   textmesh: {fileID: 531355310}
   colorChange: 1
 --- !u!1 &148112054
@@ -4283,7 +4283,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464104813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 567252221b9448d4d9f697c472a709be, type: 3}
   m_Name: 

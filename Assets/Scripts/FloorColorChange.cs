@@ -14,7 +14,7 @@ public class FloorColorChange : MonoBehaviour
     public Material Yellow;
     public Material Blue;
     public Material Green;
-    public Material White;
+    public Material Black;
     public TextMeshPro textmesh;
     public bool colorChange;
     private string code;
@@ -27,6 +27,10 @@ public class FloorColorChange : MonoBehaviour
 
     public void setCode(string c) {
         code = c;
+    }
+    
+    public string getCode() {
+        return code;
     }
 
     IEnumerator changeColor()
@@ -44,7 +48,9 @@ public class FloorColorChange : MonoBehaviour
             tile.material = Green;
             yield return new WaitForSeconds(1);
         }
-        tile.material = White;
+        tile.material = Black;
+        
+        Debug.Log("Code is " + code);
         textmesh.SetText(code);
 
     }

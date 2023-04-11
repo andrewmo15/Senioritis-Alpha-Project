@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,36 +27,26 @@ public class ButtonManager : MonoBehaviour
             int closureIndex = i;
 
             targets[closureIndex].OnTargetCollisionEvent += (target) => OnTargetCollide(target, closureIndex);
-
         }
     }
+
 
     // Function called when a target is clicked
     private void OnTargetCollide(TriggerButton target, int index)
     {
-        Debug.Log(target.name + " has been pushed!");
-
-        print(target.name + " pushed");
-
         if (index == expectedTargetIndex)
         {
-            Debug.Log("The correct target has been pushed");
- 
             expectedTargetIndex++;
             if (expectedTargetIndex == targets.Length)
             {
-                Debug.Log("The last target has been pushed : Loading next scene");
                 GameObject g = GameObject.FindGameObjectWithTag("ColorFloor");
                 tile = g.GetComponent<FloorColorChange>();
 
                 tile.colorChange = false;
-     
-
             }
         }
         else
         {
-            Debug.Log("The wrong target has been pushed");
             expectedTargetIndex = 0;
             SceneManager.LoadScene("GameOver");
         }
