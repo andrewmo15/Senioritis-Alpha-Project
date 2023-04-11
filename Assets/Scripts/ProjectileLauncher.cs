@@ -12,7 +12,7 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject chicken;
     public AudioClip currentClip;
     public AudioSource source;
-    private float launchVelocity = 700f;
+    private float launchVelocity = 500f;
     private Transform tankTop;
     private const float _launchDelayMin = 1f;
     private const float _launchDelayMax = 5f;
