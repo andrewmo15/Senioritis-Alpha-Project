@@ -19,7 +19,7 @@ public class buttonStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        password = "kpc";
+        password = "kbc";
         currpass = "";
         status.SetText("");
     }
@@ -29,7 +29,7 @@ public class buttonStatus : MonoBehaviour
     {
         passwordText.SetText(currpass);
         if (pbutton.buttonPressed) {
-            currpass += "p";
+            currpass += "b";
             pbutton.buttonPressed = false;
         }
         if (kbutton.buttonPressed) {
