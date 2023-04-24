@@ -26,6 +26,7 @@ public class Keypad : MonoBehaviour
     {
         passcode = "";
         password = createPassword();
+        Debug.Log(password);
         code1.setCode("" + password[0]);
         code2.setCode("" + password[1]);
         code3.setCode("" + password[2]);

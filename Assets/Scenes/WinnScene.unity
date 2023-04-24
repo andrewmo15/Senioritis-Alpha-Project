@@ -1805,7 +1805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You died.
+  m_Text: You won!
 --- !u!222 &194219050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3804,7 +3804,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You died.
+  m_Text: You won!
 --- !u!222 &474228212
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6054,7 +6054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: Nice Job!
 --- !u!222 &803732310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6858,7 +6858,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: Nice Job!
 --- !u!222 &860167973
 CanvasRenderer:
   m_ObjectHideFlags: 0

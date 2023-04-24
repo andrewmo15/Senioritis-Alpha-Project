@@ -39,18 +39,28 @@ public class FloorColorChange : MonoBehaviour
         {
             tile.material = first;
             yield return new WaitForSeconds(1);
+            if (!colorChange) {
+                break;
+            }
             tile.material = Red;
             yield return new WaitForSeconds(1);
+            if (!colorChange) {
+                break;
+            }
             tile.material = Yellow;
             yield return new WaitForSeconds(1);
+            if (!colorChange) {
+                break;
+            }
             tile.material = Blue;
             yield return new WaitForSeconds(1);
+            if (!colorChange) {
+                break;
+            }
             tile.material = Green;
             yield return new WaitForSeconds(1);
         }
         tile.material = Black;
-        
-        Debug.Log("Code is " + code);
         textmesh.SetText(code);
 
     }
