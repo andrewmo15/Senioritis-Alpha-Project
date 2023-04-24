@@ -8,6 +8,7 @@ public class GameInstructionController : MonoBehaviour
     public GameObject instructionPanel;
     public Button continueButton;
     public float plotDisplayDuration = 5.0f; // Duration to display the plot in seconds
+    public Timer timerController;
 
     void Start()
     {
@@ -42,5 +43,6 @@ public class GameInstructionController : MonoBehaviour
 
         // Hide the instruction panel
         instructionPanel.SetActive(false);
+        timerController.setTimerOn();
     }
 }
