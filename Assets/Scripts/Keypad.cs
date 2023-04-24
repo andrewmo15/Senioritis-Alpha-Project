@@ -13,7 +13,7 @@ public class Keypad : MonoBehaviour
     public GameObject panel;
     public GameObject door;
     public FloorColorChange code1;
-    public buttonStatus code2;
+    public Room2PasswordController code2;
     public Room3Tracker code3;
     public TextMeshPro code4;
 
