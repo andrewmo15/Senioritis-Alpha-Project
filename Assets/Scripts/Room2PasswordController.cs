@@ -98,5 +98,6 @@ public class Room2PasswordController : MonoBehaviour
         var canvas = panel.gameObject.GetComponent<CanvasGroup>();
         canvas.alpha = 0;
         canvas.interactable = false;
+        canvas.blocksRaycasts = false;
     }
 }
